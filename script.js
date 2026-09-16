@@ -1,14 +1,22 @@
-const cube = document.getElementById("cube");
+document.addEventListener('DOMContentLoaded', () => {
+    const navButtons = document.querySelectorAll('.nav-btn');
+    const sections = document.querySelectorAll('.content-section');
 
-const clickOnSide = (side) => {
-  const activeSide = cube.dataset.side;
-  cube.classList.replace(`show-${activeSide}`, `show-${side}`);
-  cube.setAttribute("data-side", side);
-};
+    navButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all buttons and sections
+            navButtons.forEach(b => b.classList.remove('active'));
+            sections.forEach(s => s.classList.remove('active'));
 
-document.querySelectorAll(".btn").forEach(btn => {
-  btn.addEventListener("click", (e) => {
-    const sideToTurn = e.target.dataset.side;
-    clickOnSide(sideToTurn);
-  })
+            // Add active class to the clicked button
+            btn.classList.add('active');
+
+            // Find and show the target section
+            const targetId = btn.getAttribute('data-target');
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+        });
+    });
 });
