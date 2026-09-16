@@ -3,292 +3,244 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Wanderer — Portfolio</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22%2307070b%22/><circle cx=%2250%22 cy=%2250%22 r=%2230%22 fill=%22%2358c4dd%22/></svg>">
+<title>[Your Name] — Curriculum Vitae</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<!-- floating spore canvas -->
-<canvas id="spores"></canvas>
-
-<!-- HP mask progress indicator -->
-<div class="hp-track" aria-hidden="true">
-  <svg class="mask-icon" viewBox="0 0 40 44"><path class="mask-shape" d="M20 2 C31 2 38 11 38 22 C38 33 31 42 20 42 C9 42 2 33 2 22 C2 11 9 2 20 2 Z"/></svg>
-  <svg class="mask-icon" viewBox="0 0 40 44"><path class="mask-shape" d="M20 2 C31 2 38 11 38 22 C38 33 31 42 20 42 C9 42 2 33 2 22 C2 11 9 2 20 2 Z"/></svg>
-  <svg class="mask-icon" viewBox="0 0 40 44"><path class="mask-shape" d="M20 2 C31 2 38 11 38 22 C38 33 31 42 20 42 C9 42 2 33 2 22 C2 11 9 2 20 2 Z"/></svg>
+<div id="bg-video-wrap" aria-hidden="true">
+  <video id="bg-video" autoplay muted loop playsinline preload="auto">
+    <source src="COT.mp4" type="video/mp4">
+  </video>
 </div>
 
-<nav id="nav">
-  <div class="nav-wrap">
-    <a href="#top" class="nav-brand">
-      <svg viewBox="0 0 40 40" class="brand-mark"><circle cx="20" cy="20" r="18"/><circle class="brand-eye" cx="13" cy="19" r="3.2"/><circle class="brand-eye" cx="27" cy="19" r="3.2"/></svg>
-      <span>the wanderer</span>
-    </a>
-    <button id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links">
-      <li><a href="#about">wanderer</a></li>
-      <li><a href="#charms">charms</a></li>
-      <li><a href="#trials">trials</a></li>
-      <li><a href="#bench">bench</a></li>
-    </ul>
-  </div>
-</nav>
+<div id="soul-meter" aria-hidden="true">
+  <div id="soul-fill"></div>
+  <span class="label">Soul</span>
+</div>
 
-<!-- ============ HERO ============ -->
-<header id="top" class="hero">
-  <div class="hero-fog"></div>
-  <div class="hero-vignette"></div>
-
-  <svg class="hero-glow" viewBox="0 0 100 100" aria-hidden="true">
-    <defs>
-      <radialGradient id="glowGrad" cx="50%" cy="45%" r="55%">
-        <stop offset="0%" stop-color="#58c4dd" stop-opacity="0.35"/>
-        <stop offset="100%" stop-color="#58c4dd" stop-opacity="0"/>
-      </radialGradient>
-    </defs>
-    <circle cx="50" cy="45" r="50" fill="url(#glowGrad)"/>
+<!-- ================= HERO ================= -->
+<section id="hero">
+  <div class="vessel-glow" aria-hidden="true"></div>
+  <svg class="vessel-svg" viewBox="0 0 160 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <!-- original stylised horned-vessel silhouette -->
+    <path d="M80 6C50 6 34 26 30 52c-3 20 2 34 10 44-8 6-14 16-14 30 0 34 24 62 54 62s54-28 54-62c0-14-6-24-14-30 8-10 13-24 10-44C126 26 110 6 80 6Z" fill="#101018" stroke="#e9e4d6" stroke-width="2"/>
+    <path d="M20 40C10 34 2 34 2 34s6 18 20 26" stroke="#e9e4d6" stroke-width="2" stroke-linecap="round"/>
+    <path d="M140 40c10-6 18-6 18-6s-6 18-20 26" stroke="#e9e4d6" stroke-width="2" stroke-linecap="round"/>
+    <path d="M56 96c0 14 8 24 24 24s24-10 24-24" stroke="#e9e4d6" stroke-width="2"/>
+    <ellipse cx="62" cy="80" rx="9" ry="12" fill="#74e3d1"/>
+    <ellipse cx="98" cy="80" rx="9" ry="12" fill="#74e3d1"/>
+    <path d="M80 6c-6 14-6 28 0 40" stroke="#e9e4d6" stroke-width="1.4" opacity=".5"/>
   </svg>
-
-  <div class="knight-figure" aria-hidden="true">
-    <svg viewBox="0 0 220 260">
-      <ellipse class="knight-shadow" cx="110" cy="248" rx="70" ry="10"/>
-      <path class="knight-cloak" d="M110 60 C50 90 30 170 45 235 L175 235 C190 170 170 90 110 60 Z"/>
-      <path class="knight-horn left" d="M78 55 C55 35 38 8 30 -6 C55 2 82 22 92 48 Z"/>
-      <path class="knight-horn right" d="M142 55 C165 35 182 8 190 -6 C165 2 138 22 128 48 Z"/>
-      <path class="knight-head" d="M110 30 C145 30 165 55 165 88 C165 122 140 148 110 148 C80 148 55 122 55 88 C55 55 75 30 110 30 Z"/>
-      <ellipse class="knight-eye" cx="88" cy="90" rx="11" ry="15"/>
-      <ellipse class="knight-eye" cx="132" cy="90" rx="11" ry="15"/>
-      <path class="knight-nail" d="M198 90 L206 210 L198 222 L190 210 L186 92 Z"/>
-    </svg>
+  <h1>[Your Name]</h1>
+  <p class="role">[Your Role / Title]</p>
+  <p class="tagline">"[A short personal tagline — one line about what drives your work.]"</p>
+  <div class="scroll-cue">
+    <span>descend</span>
+    <svg viewBox="0 0 14 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 1v18M1 13l6 6 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </div>
+</section>
 
-  <div class="hero-content">
-    <p class="hero-eyebrow">a portfolio from the kingdom below</p>
-    <h1 class="hero-title">Alex Voss</h1>
-    <p class="hero-subtitle">Software developer &amp; digital cartographer,<br>mapping small, sturdy things out of dark places.</p>
-    <a href="#about" class="descend-link">
-      <span>descend</span>
-      <svg viewBox="0 0 20 30"><path d="M10 0 V24 M3 17 L10 24 L17 17"/></svg>
-    </a>
+<div class="divider" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3z"/></svg></div>
+
+<!-- ================= JOURNAL / ABOUT ================= -->
+<section id="journal" class="wrap">
+  <div class="section-head reveal">
+    <svg class="glyph" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2v20M4 8h16M6 4h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    <h2>Journal Entry</h2>
+    <p class="sub">A record of the vessel, as written</p>
   </div>
-</header>
+  <div class="journal-card reveal">
+    <p><strong>[Your Name]</strong> — [one or two sentences on your professional background and what kind of work you do]. [A sentence on your specialty or the domain you focus in.]</p>
+    <p>[A short paragraph on your approach to work, what you value, or a notable thread that runs through your career — e.g., a love of solving hard problems, building things that last, or working closely with teams.]</p>
+    <p>Outside of work: [a line about interests, hobbies, or what you do to recharge — keep it brief and personal].</p>
+  </div>
+</section>
 
-<!-- divider -->
-<div class="divider" aria-hidden="true">
-  <svg viewBox="0 0 400 24" preserveAspectRatio="none"><path d="M0 12 H160 M240 12 H400" /><circle cx="200" cy="12" r="6"/><circle cx="200" cy="12" r="2" class="dot-fill"/></svg>
-</div>
-
-<!-- ============ ABOUT ============ -->
-<section id="about" class="section about">
-  <div class="section-inner two-col">
-    <div class="tablet">
-      <svg class="tablet-frame" viewBox="0 0 320 380" preserveAspectRatio="none">
-        <path d="M20 10 H300 C310 10 310 20 310 20 V360 C310 370 300 370 300 370 H20 C10 370 10 360 10 360 V20 C10 20 10 10 20 10 Z"/>
-      </svg>
-      <div class="tablet-portrait">
-        <svg viewBox="0 0 160 160">
-          <circle cx="80" cy="80" r="70" class="portrait-bg"/>
-          <path class="portrait-cloak" d="M80 55 C45 70 35 115 45 150 L115 150 C125 115 115 70 80 55 Z"/>
-          <ellipse class="portrait-eye" cx="66" cy="78" rx="8" ry="11"/>
-          <ellipse class="portrait-eye" cx="94" cy="78" rx="8" ry="11"/>
-        </svg>
-      </div>
+<!-- ================= VESSEL STATS ================= -->
+<section id="stats" class="wrap">
+  <div class="section-head reveal">
+    <svg class="glyph" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    <h2>Vessel Attributes</h2>
+    <p class="sub">A little flair, not a formal scorecard — feel free to cut this section</p>
+  </div>
+  <div class="reveal" id="stats-block">
+    <div class="stat-row" data-value="90">
+      <div class="stat-top"><span>Years Honing the Craft</span><span>9 yrs</span></div>
+      <div class="stat-track"><div class="stat-fill"></div></div>
     </div>
-
-    <div class="about-text">
-      <p class="kicker">record of the wanderer</p>
-      <h2>An old shell, still walking.</h2>
-      <p>I build software the way old kingdoms were built — one careful chamber at a time, load-bearing and meant to last. Seven years in, I still find the tunnels worth exploring: backend systems, small interactive tools, and the occasional strange side project that has no business existing.</p>
-      <p>I care about interfaces that don't waste the person on the other end of the screen, code that a stranger could read in the dark, and shipping things that hold their shape under pressure. Currently based between contract work and personal explorations, always looking for the next chamber to map.</p>
-      <div class="stat-row">
-        <div class="stat"><span class="stat-num">7</span><span class="stat-label">years building</span></div>
-        <div class="stat"><span class="stat-num">40+</span><span class="stat-label">shipped projects</span></div>
-        <div class="stat"><span class="stat-num">3</span><span class="stat-label">languages fluent</span></div>
-      </div>
+    <div class="stat-row" data-value="85">
+      <div class="stat-top"><span>Problem Solving</span><span>85%</span></div>
+      <div class="stat-track"><div class="stat-fill"></div></div>
+    </div>
+    <div class="stat-row" data-value="75">
+      <div class="stat-top"><span>Leadership &amp; Mentorship</span><span>75%</span></div>
+      <div class="stat-track"><div class="stat-fill"></div></div>
+    </div>
+    <div class="stat-row" data-value="95">
+      <div class="stat-top"><span>Collaboration</span><span>95%</span></div>
+      <div class="stat-track"><div class="stat-fill"></div></div>
     </div>
   </div>
 </section>
 
-<div class="divider" aria-hidden="true">
-  <svg viewBox="0 0 400 24" preserveAspectRatio="none"><path d="M0 12 H160 M240 12 H400" /><circle cx="200" cy="12" r="6"/><circle cx="200" cy="12" r="2" class="dot-fill"/></svg>
-</div>
+<div class="divider" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3z"/></svg></div>
 
-<!-- ============ CHARMS / SKILLS ============ -->
-<section id="charms" class="section charms">
-  <div class="section-inner">
-    <p class="kicker center">equipped charms</p>
-    <h2 class="center">Notches spent well</h2>
-    <p class="section-lede center">Each charm below is a tool I reach for often. Hover or tap one to see what it does.</p>
+<!-- ================= PATH / EXPERIENCE ================= -->
+<section id="path-section" class="wrap">
+  <div class="section-head reveal">
+    <svg class="glyph" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 20c4-8 4-8 8-16 4 8 4 8 8 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="4" r="1.6" fill="currentColor"/></svg>
+    <h2>The Path So Far</h2>
+    <p class="sub">Benches along the way — professional experience</p>
+  </div>
 
-    <div class="charm-grid">
-      <!-- charm items injected pattern, static here -->
-      <div class="charm" data-cost="2">
-        <svg class="charm-ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="44"/></svg>
-        <svg class="charm-icon" viewBox="0 0 40 40"><path d="M20 4 L36 20 L20 36 L4 20 Z"/></svg>
-        <span class="charm-name">JavaScript</span>
-        <span class="charm-tip">Frontend logic, animation, tooling — the everyday nail.</span>
-      </div>
-      <div class="charm" data-cost="3">
-        <svg class="charm-ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="44"/></svg>
-        <svg class="charm-icon" viewBox="0 0 40 40"><rect x="8" y="8" width="24" height="24" rx="4"/></svg>
-        <span class="charm-name">React</span>
-        <span class="charm-tip">Component architecture for interfaces that need to hold up.</span>
-      </div>
-      <div class="charm" data-cost="3">
-        <svg class="charm-ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="44"/></svg>
-        <svg class="charm-icon" viewBox="0 0 40 40"><circle cx="20" cy="20" r="14"/></svg>
-        <span class="charm-name">Python</span>
-        <span class="charm-tip">Data wrangling, backend services, automation, quick scripts.</span>
-      </div>
-      <div class="charm" data-cost="4">
-        <svg class="charm-ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="44"/></svg>
-        <svg class="charm-icon" viewBox="0 0 40 40"><path d="M20 4 L34 30 H6 Z"/></svg>
-        <span class="charm-name">Node.js</span>
-        <span class="charm-tip">APIs, servers, and the plumbing that connects everything.</span>
-      </div>
-      <div class="charm" data-cost="2">
-        <svg class="charm-ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="44"/></svg>
-        <svg class="charm-icon" viewBox="0 0 40 40"><path d="M8 20 H32 M20 8 V32"/></svg>
-        <span class="charm-name">SQL</span>
-        <span class="charm-tip">Schema design and queries that don't fall over at scale.</span>
-      </div>
-      <div class="charm" data-cost="3">
-        <svg class="charm-ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="44"/></svg>
-        <svg class="charm-icon" viewBox="0 0 40 40"><path d="M6 30 L20 6 L34 30 Z"/><circle cx="20" cy="24" r="4"/></svg>
-        <span class="charm-name">CSS / Design</span>
-        <span class="charm-tip">Layouts and motion, tuned by hand rather than a template.</span>
-      </div>
-      <div class="charm" data-cost="4">
-        <svg class="charm-ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="44"/></svg>
-        <svg class="charm-icon" viewBox="0 0 40 40"><path d="M20 6 C10 6 6 14 6 20 C6 30 14 34 20 34 C26 34 34 30 34 20 C34 14 30 6 20 6 Z"/></svg>
-        <span class="charm-name">Docker</span>
-        <span class="charm-tip">Shipping the same shell everywhere it needs to run.</span>
-      </div>
-      <div class="charm" data-cost="2">
-        <svg class="charm-ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="44"/></svg>
-        <svg class="charm-icon" viewBox="0 0 40 40"><path d="M8 8 L32 32 M32 8 L8 32"/></svg>
-        <span class="charm-name">Git</span>
-        <span class="charm-tip">History worth reading, branches that merge cleanly.</span>
-      </div>
+  <div class="path reveal">
+    <div class="path-node">
+      <h3>[Job Title]</h3>
+      <div class="meta"><span>[Company Name]</span><span>[Start] – [End]</span><span>[Location]</span></div>
+      <ul>
+        <li>[Key responsibility or achievement — quantify it if you can.]</li>
+        <li>[Another achievement or notable project.]</li>
+        <li>[A third bullet — impact, scale, or a skill you grew here.]</li>
+      </ul>
     </div>
-
-    <div class="notch-meter" aria-hidden="true">
-      <span class="notch-label">notches used</span>
-      <div class="notch-row">
-        <span class="notch filled"></span><span class="notch filled"></span><span class="notch filled"></span>
-        <span class="notch filled"></span><span class="notch filled"></span><span class="notch filled"></span>
-        <span class="notch filled"></span><span class="notch filled"></span><span class="notch"></span><span class="notch"></span>
-        <span class="notch"></span>
-      </div>
+    <div class="path-node">
+      <h3>[Job Title]</h3>
+      <div class="meta"><span>[Company Name]</span><span>[Start] – [End]</span><span>[Location]</span></div>
+      <ul>
+        <li>[Key responsibility or achievement.]</li>
+        <li>[Another achievement or notable project.]</li>
+      </ul>
+    </div>
+    <div class="path-node">
+      <h3>[Job Title]</h3>
+      <div class="meta"><span>[Company Name]</span><span>[Start] – [End]</span><span>[Location]</span></div>
+      <ul>
+        <li>[Key responsibility or achievement.]</li>
+        <li>[Another achievement or notable project.]</li>
+      </ul>
     </div>
   </div>
 </section>
 
-<div class="divider" aria-hidden="true">
-  <svg viewBox="0 0 400 24" preserveAspectRatio="none"><path d="M0 12 H160 M240 12 H400" /><circle cx="200" cy="12" r="6"/><circle cx="200" cy="12" r="2" class="dot-fill"/></svg>
-</div>
+<div class="divider" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3z"/></svg></div>
 
-<!-- ============ PROJECTS / TRIALS ============ -->
-<section id="trials" class="section trials">
-  <div class="section-inner">
-    <p class="kicker center">trials undertaken</p>
-    <h2 class="center">Chambers worth exploring</h2>
-    <p class="section-lede center">A handful of the projects I'm proudest of — replace these with your own.</p>
-
-    <div class="trial-grid">
-
-      <article class="trial-card">
-        <div class="trial-glow"></div>
-        <div class="trial-num">I</div>
-        <h3>Pale Court — Habit Tracker</h3>
-        <p>A minimal habit tracker with streak visualisation and gentle nudges instead of guilt trips. Built with React, IndexedDB, and a lot of restraint.</p>
-        <div class="trial-tags"><span>React</span><span>IndexedDB</span><span>PWA</span></div>
-        <a href="#" class="trial-link">view the trial →</a>
-      </article>
-
-      <article class="trial-card">
-        <div class="trial-glow"></div>
-        <div class="trial-num">II</div>
-        <h3>Greenpath — Trail Logger</h3>
-        <p>A hiking log that renders your GPX tracks as hand-drawn topographic maps. Node backend, canvas rendering on the client.</p>
-        <div class="trial-tags"><span>Node.js</span><span>Canvas</span><span>PostGIS</span></div>
-        <a href="#" class="trial-link">view the trial →</a>
-      </article>
-
-      <article class="trial-card">
-        <div class="trial-glow"></div>
-        <div class="trial-num">III</div>
-        <h3>Soul Ledger — Budgeting Tool</h3>
-        <p>Envelope-style budgeting with a soul-meter metaphor for spending capacity. Postgres backend, full test coverage, dark mode only.</p>
-        <div class="trial-tags"><span>TypeScript</span><span>PostgreSQL</span><span>Docker</span></div>
-        <a href="#" class="trial-link">view the trial →</a>
-      </article>
-
-      <article class="trial-card">
-        <div class="trial-glow"></div>
-        <div class="trial-num">IV</div>
-        <h3>Hollow Archive — Static Site Gen</h3>
-        <p>A tiny static site generator built for archives and zines, markdown in, atmospheric HTML out. Zero dependencies.</p>
-        <div class="trial-tags"><span>Python</span><span>Markdown</span><span>CLI</span></div>
-        <a href="#" class="trial-link">view the trial →</a>
-      </article>
-
-    </div>
+<!-- ================= CHARMS / SKILLS ================= -->
+<section id="charms" class="wrap">
+  <div class="section-head reveal">
+    <svg class="glyph" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3 5 5 1-4 4 1 6-5-3-5 3 1-6-4-4 5-1z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+    <h2>Charms Equipped</h2>
+    <p class="sub">Skills, hover or focus a charm for detail</p>
   </div>
-</section>
 
-<div class="divider" aria-hidden="true">
-  <svg viewBox="0 0 400 24" preserveAspectRatio="none"><path d="M0 12 H160 M240 12 H400" /><circle cx="200" cy="12" r="6"/><circle cx="200" cy="12" r="2" class="dot-fill"/></svg>
-</div>
+  <div class="charm-grid reveal">
 
-<!-- ============ CONTACT / BENCH ============ -->
-<section id="bench" class="section bench">
-  <div class="section-inner center-col">
-    <svg class="bench-icon" viewBox="0 0 120 60" aria-hidden="true">
-      <path d="M10 40 H110 M20 40 V54 M100 40 V54 M60 40 V16 M40 24 H80" />
-    </svg>
-    <p class="kicker center">rest at the bench</p>
-    <h2 class="center">Sit a while, send a word</h2>
-    <p class="section-lede center">Whether it's work, a collaboration, or just a question about a project above — the bench is open.</p>
-
-    <form class="bench-form" id="contactForm">
-      <div class="field">
-        <label for="name">your name</label>
-        <input type="text" id="name" name="name" required>
-      </div>
-      <div class="field">
-        <label for="email">your email</label>
-        <input type="email" id="email" name="email" required>
-      </div>
-      <div class="field">
-        <label for="message">your message</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-      </div>
-      <button type="submit" class="rest-btn">
-        <span>rest here</span>
+    <div class="charm">
+      <button class="charm-slot" aria-describedby="d1">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M8 9l-5 3 5 3M16 9l5 3-5 3M14 5l-4 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
-      <p class="form-status" id="formStatus" role="status"></p>
-    </form>
+      <span class="charm-name">[Skill: e.g. Frontend]</span>
+      <span class="charm-desc" id="d1">[List the languages/frameworks — e.g. React, TypeScript, CSS.]</span>
+    </div>
 
-    <div class="socials">
-      <a href="#" aria-label="GitHub">GitHub</a>
-      <a href="#" aria-label="LinkedIn">LinkedIn</a>
-      <a href="#" aria-label="Email">Email</a>
+    <div class="charm">
+      <button class="charm-slot" aria-describedby="d2">
+        <svg viewBox="0 0 24 24" fill="none"><ellipse cx="12" cy="6" rx="7" ry="3" stroke="currentColor" stroke-width="1.6"/><path d="M5 6v12c0 1.66 3.13 3 7 3s7-1.34 7-3V6" stroke="currentColor" stroke-width="1.6"/><path d="M5 12c0 1.66 3.13 3 7 3s7-1.34 7-3" stroke="currentColor" stroke-width="1.6"/></svg>
+      </button>
+      <span class="charm-name">[Skill: e.g. Backend]</span>
+      <span class="charm-desc" id="d2">[Languages/frameworks — e.g. Node.js, Python, PostgreSQL.]</span>
+    </div>
+
+    <div class="charm">
+      <button class="charm-slot" aria-describedby="d3">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+      </button>
+      <span class="charm-name">[Skill: e.g. Cloud/DevOps]</span>
+      <span class="charm-desc" id="d3">[Tools — e.g. AWS, Docker, CI/CD.]</span>
+    </div>
+
+    <div class="charm">
+      <button class="charm-slot" aria-describedby="d4">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.2" stroke="currentColor" stroke-width="1.6"/><path d="M5 20c0-4 3-6 7-6s7 2 7 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+      <span class="charm-name">[Skill: e.g. Leadership]</span>
+      <span class="charm-desc" id="d4">[Team size led, mentoring, cross-functional work.]</span>
+    </div>
+
+    <div class="charm">
+      <button class="charm-slot" aria-describedby="d5">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="5" width="16" height="11" rx="1.5" stroke="currentColor" stroke-width="1.6"/><path d="M9 20h6M12 16v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+      <span class="charm-name">[Skill: e.g. Design]</span>
+      <span class="charm-desc" id="d5">[Tools — e.g. Figma, design systems.]</span>
+    </div>
+
+    <div class="charm">
+      <button class="charm-slot" aria-describedby="d6">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 12h4l2-7 4 14 2-7h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <span class="charm-name">[Skill: e.g. Data/Analytics]</span>
+      <span class="charm-desc" id="d6">[Tools — e.g. SQL, dashboards, experimentation.]</span>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3z"/></svg></div>
+
+<!-- ================= TRIALS / EDUCATION ================= -->
+<section id="trials" class="wrap">
+  <div class="section-head reveal">
+    <svg class="glyph" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3l9 5-9 5-9-5 9-5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5" stroke="currentColor" stroke-width="1.6"/></svg>
+    <h2>Trials Undertaken</h2>
+    <p class="sub">Education &amp; certifications</p>
+  </div>
+
+  <div class="reveal">
+    <div class="trial">
+      <svg class="glyph" viewBox="0 0 24 24" fill="none"><path d="M12 2l2 5 5 1-4 4 1 6-4-3-4 3 1-6-4-4 5-1z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+      <div>
+        <h3>[Degree, Field of Study]</h3>
+        <div class="meta">[University Name] · [Graduation Year]</div>
+      </div>
+    </div>
+    <div class="trial">
+      <svg class="glyph" viewBox="0 0 24 24" fill="none"><path d="M12 2l2 5 5 1-4 4 1 6-4-3-4 3 1-6-4-4 5-1z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+      <div>
+        <h3>[Certification Name]</h3>
+        <div class="meta">[Issuing Organization] · [Year]</div>
+      </div>
     </div>
   </div>
 </section>
 
-<footer class="site-footer">
-  <svg class="footer-mark" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="17"/></svg>
-  <p>Wandering since 2019. Built with plain HTML, CSS &amp; JS — no engine required.</p>
+<div class="divider" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3z"/></svg></div>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="wrap">
+  <div class="section-head reveal">
+    <svg class="glyph" viewBox="0 0 24 24" fill="none" style="margin-left:auto;margin-right:auto;" xmlns="http://www.w3.org/2000/svg"><path d="M3 6l9 6 9-6M4 5h16v14H4V5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+    <h2>Send a Memory</h2>
+    <p class="sub">Reach out — I'd like to hear from you</p>
+  </div>
+  <div class="journal-card reveal">
+    <p>[A short closing line inviting people to get in touch — about a role, a project, or a collaboration.]</p>
+    <div class="contact-links">
+      <a href="mailto:[email protected]">[[email protected]]</a>
+      <a href="https://linkedin.com/in/[yourprofile]">LinkedIn</a>
+      <a href="https://github.com/[yourhandle]">GitHub</a>
+      <a href="[link-to-portfolio]">Portfolio</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Bound to [Your Name], forged in Hallownest — inspired by, not affiliated with, Team Cherry's Hollow Knight.
 </footer>
 
 <script src="script.js"></script>
+
 </body>
-</html>
